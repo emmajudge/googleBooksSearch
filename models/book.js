@@ -1,11 +1,14 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// updated fields, make sure to apply elsewhere as needed
 const bookSchema = new Schema({
   title: { type: String, required: true },
-  author: { type: String, required: true },
-  synopsis: String,
-  date: { type: Date, default: Date.now }
+  authors: [{ type: String, required: true }],
+  description: String,
+  image: String,
+  link: String,
+  date: { type: Date, default: Date.now}
 });
 
 const Book = mongoose.model("Book", bookSchema);
